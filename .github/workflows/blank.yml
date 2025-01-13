@@ -70,12 +70,6 @@ jobs:
         VERSION_INFO=$(git show -s --date=short --format="作者: %an<br/>时间: %cd<br/>内容: %s<br/>hash: %H")
         echo "VERSION_INFO=$VERSION_INFO" >> $GITHUB_ENV
 
-    - name: Check Patch Conflicts(检查补丁冲突)
-      run: |
-        cd $OPENWRT_PATH
-        ls target/linux/qualcommax/patches-6.12
-        mv target/linux/qualcommax/patches-6.12/*.patch target/linux/qualcommax/patches-backup/
-        echo "已备份补丁文件，必要时逐一应用"
 
     - name: Generate Variables(生成变量)
       run: |

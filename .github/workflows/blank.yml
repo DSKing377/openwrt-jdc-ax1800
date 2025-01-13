@@ -36,7 +36,6 @@ jobs:
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l)" && df -hT
 
-
     - name: Initialization Environment(初始化环境)
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -52,7 +51,7 @@ jobs:
         sudo -E apt-get -y clean
         sudo timedatectl set-timezone "$TZ"
 
-      - name: Combine Disks(合并磁盘)
+    - name: Combine Disks(合并磁盘)
       uses: easimon/maximize-build-space@master
       with:
         swap-size-mb: 1024

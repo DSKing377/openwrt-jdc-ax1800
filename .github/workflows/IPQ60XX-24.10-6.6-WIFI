@@ -51,12 +51,6 @@ jobs:
         sudo -E apt-get -y clean
         sudo timedatectl set-timezone "$TZ"
 
-    - name: Force Update Toolchain(强制更新工具链)
-      run: |
-       cd $OPENWRT_PATH
-       make toolchain/clean
-       make toolchain/install -j$(nproc)
-
     - name: Combine Disks(合并磁盘)
       uses: easimon/maximize-build-space@master
       with:
